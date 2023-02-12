@@ -5,11 +5,11 @@ const sequelize = new Sequelize("nodesequelize", "root", "", {
         dialect: "mysql"
 })
 
-try {
-    sequelize.authenticate()
-    console.log("Connection successful with sequelize")
-} catch (err) {
-    console.log("Concection not possible: ", error)
-}
+// try {
+//     sequelize.authenticate()
+//     console.log("Connection successful with sequelize")
+// } catch (err) {
+//     console.log("Concection not possible: ", error)
+// }
 
 module.exports = sequelize
