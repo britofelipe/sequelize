@@ -33,9 +33,19 @@ h1 {
 .links {
     color: rgb(7, 38, 49);
     text-align: center;
-    margin-top: 2em;
     font-weight: bolder;
-    font-style: oblique;
+}
+
+.links a,
+.item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.links a:hover,
+.item a:hover,
+.users-table a:hover {
+    color: #c16b20;
 }
 
 .form {
@@ -70,4 +80,64 @@ h1 {
     margin-top: 1em;
     padding: 2px 10px;
     align-self: auto;
+}
+
+/* USERS */
+
+/* Table */
+
+.users-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.users-table th,
+.users-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.users-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.users-table a {
+    color: #333;
+    text-decoration: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+}
+  
+.container .item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1 1 29%;
+    max-width: 29%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.item h2,
+.item p {
+    margin-bottom: 0.8em;
+}
+
+.actions {
+    display: flex;
 }

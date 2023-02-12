@@ -1,0 +1,19 @@
+<h1>Members</h1>
+<div class="links">
+    <a  href="/users/table">Table View</a>
+</div>
+<br><br>
+<div class="container">
+  {{#each users}}
+    <div class="item">
+      <a href="/users/{{this.id}}"><h3 class="bold">{{this.name}}</h3></a>
+      <br>
+      <p>{{this.occupation}}</p>
+      <a href="/users/{{this.id}}"><h6>Expand</h6></a>
+    </div>
+  {{/each}}
+</div>
+<br><br>
+<div class="links">
+    <a href="/users/create" class="form">Add new member</a> 
+</div>

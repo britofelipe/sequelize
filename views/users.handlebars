@@ -1,0 +1,30 @@
+<h1>Members</h1>
+<div class="links">
+    <a href="/users/grade">Grade View</a>
+</div>
+
+<div class="users-container">
+    <table class="users-table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Occupation</th>
+        <th>Newsletter</th>
+        <th>Prime Member</th>
+    </tr>
+    {{#each users}}
+    <tr>
+        <td>{{this.id}}</td>
+        <td><a href="/users/{{this.id}}"><span class="bold">{{this.name}}</span></a></td>
+        <td>{{this.email}}</td>
+        <td>{{this.occupation}}</td>
+        <td>{{this.newsletter}}</td>
+        <td>{{this.prime}}</td>
+    </tr>
+    {{/each}}
+    </table>
+</div>
+<div class="links">
+    <a href="/users/create" class="form">Add new member</a> 
+</div>

@@ -8,8 +8,6 @@ const conn = require('./db/conn')
 // MODELS
 const User = require("./models/User")
 
-console.log(User)
-
 const app = express()
 
 // SETUP
@@ -26,18 +24,27 @@ app.set("view engine", "handlebars")
 
 app.use(express.static("public"))
 
-// PAGES
-app.get("/", (req, res) => {
+// GET
+app.get("/", async (req, res) => {
     res.render("home")
 })
 
-// GET
-app.get("/users/create", (req, res) => {
+app.get("/users/table", async (req, res) => {
+    const users = await User.findAll({ raw: true }) // Only with useful data
+    res.render("users", { users: users})
+})
+
+app.get("/users/grade", async (req, res) => {
+    const users = await User.findAll({ raw: true }) // Only with useful data
+    res.render("users-gradeview", { users: users})
+})
+
+app.get("/users/create", async (req, res) => {
     res.render("register")
 })
 
 // POST
-app.post("/users/create", (req, res) => {
+app.post("/users/create", async (req, res) => {
     const name = req.body.name
     const occupation = req.body.occupation
     const email = req.body.email
@@ -46,13 +53,31 @@ app.post("/users/create", (req, res) => {
 
     if(newsletter === "on") {
         newsletter = true
+    } else {
+        newsletter = false
     }
     if(prime === "on") {
         prime = true
+    } else {
+        prime = false
     }
 
-    User.create({ name, occupation, email, newsletter, prime}) //async
+    await User.create({ name, occupation, email, newsletter, prime}) //async
     res.redirect("/")
+})
+
+app.get("/users/:id", async(req, res) => {
+    const id = req.params.id
+    const user = await User.findOne({
+        raw: true, 
+        where: { 
+            id: id
+        },
+    })
+        .then((user) => {
+            res.render("user", { user })
+        })
+        .catch((err) => console.log(err))
 })
 
 // CONNECTION

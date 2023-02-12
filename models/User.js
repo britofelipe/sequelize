@@ -9,15 +9,19 @@ const User = db.define("User", { // Name of Model
     },
     occupation: {
         type: DataTypes.STRING,
+        allowNull: false
     },
     email: {
         type: DataTypes.STRING,
+        allowNull: false
     },
     newsletter: {
         type: DataTypes.BOOLEAN,
+        allowNull: false
     },
     prime: {
         type: DataTypes.BOOLEAN,
+        allowNull: false
     } 
 })
 
