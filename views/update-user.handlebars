@@ -1,0 +1,35 @@
+<h1>Update user: {{user.name}}</h1>
+<form action="/users/update" class="form" method="POST">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <div class="form-control">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Write user name" value="{{user.name}}">
+    </div>
+    <div class="form-control">
+        <label for="occupation">Occupation</label>
+        <input type="text" name="occupation" placeholder="Write user occupation" value="{{user.occupation}}">
+    </div>
+    <div class="form-control">
+        <label for="email">E-mail</label>
+        <input type="text" name="email" placeholder="Write user email" value="{{user.email}}">
+    </div>
+    <br>
+    <div class="form-control form-checkbox">
+        {{#if user.newsletter}}
+            <input type="checkbox" name="newsletter" checked>
+        {{else}}
+            <input type="checkbox" name="newsletter">
+        {{/if}}
+        <label for="newsletter">Subscribe user to newsletter?</label>
+    </div>
+    <div class="form-control form-checkbox">
+        {{#if user.prime}}
+            <input type="checkbox" name="prime" checked>
+        {{else}}
+            <input type="checkbox" name="prime">
+        {{/if}}
+        <label for="prime">Prime member</label>
+    </div>
+    <input class="submit-button" type="submit" value="Update">
+    <br>
+</form>

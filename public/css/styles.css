@@ -45,7 +45,7 @@ h1 {
 .links a:hover,
 .item a:hover,
 .users-table a:hover {
-    color: #c16b20;
+    color: #757474;
 }
 
 .form {
@@ -140,4 +140,65 @@ h1 {
 
 .actions {
     display: flex;
+    justify-content: space-between;
+}
+
+.actions a,
+.actions input{
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #fff;
+    padding: 5px;
+    font-size: 15px;
+    color: #000;
+    cursor: pointer;
+}
+
+.actions .details-button {
+    border-color: #004085;
+    color: #004085;
+}
+  
+.actions .delete-button {
+    border-color: #721c24;
+    color: #721c24;
+}
+
+.actions .edit-button {
+    border-color: #a77f2b;
+    color: #a77f2b;
+}
+
+.address-container {
+    max-width: 1000px;
+    margin: 1em auto;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+}
+
+.address-container h2 {
+    margin-bottom: 1em;
+}
+
+.address-container form {
+    width: 300px;
+}
+
+.address-list {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+    padding-bottom: 200px;
+}
+
+.address-list div {
+    display: flex;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.address-list form {
+    margin-left: 1em;
 }
