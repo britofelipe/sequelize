@@ -179,10 +179,12 @@ h1 {
 
 .address-container h2 {
     margin-bottom: 1em;
+    text-align: center;
 }
 
 .address-container form {
     width: 300px;
+    margin: 0 auto;
 }
 
 .address-list {

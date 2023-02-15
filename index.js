@@ -7,6 +7,7 @@ const conn = require('./db/conn')
 
 // MODELS
 const User = require("./models/User")
+const Address = require("./models/Address")
 
 const app = express()
 
@@ -137,9 +138,34 @@ app.post("/users/update", async(req, res) => {
     res.redirect("/users/grade")
 })
 
+app.post("/address/create", async(req, res) => {
+    const UserId = req.body.UserId
+    const country = req.body.country
+    const state = req.body.state
+    const city = req.body.city
+    const neighborhood = req.body.neighborhood
+    const street = req.body.street
+    const number = req.body.number
+
+    const address = {
+        country,
+        state,
+        city,
+        neighborhood,
+        street,
+        number,
+        UserId,
+    }
+
+
+    await Address.create(address)
+    res.redirect(`/users/${UserId}`)
+})
+
 // CONNECTION
 conn
     .sync()
+    // .sync({force: true}) // Force drop table
     .then(() => {
         app.listen(3000)
     })

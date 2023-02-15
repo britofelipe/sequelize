@@ -33,3 +33,36 @@
     <input class="submit-button" type="submit" value="Update">
     <br>
 </form>
+<br>
+<div class="address-container">
+    <h2>Addresses:</h2>
+    <form action="/address/create" method="POST">
+        {{!-- This is how we know the user data --}}
+        <input type="hidden" name="UserId" value="{{user.id}}">
+        <div class="form-control">
+            <label for="country">Country</label>
+            <input type="text" name="country" placeholder="Write user country">
+        </div> 
+        <div class="form-control">
+            <label for="state">State</label>
+            <input type="text" name="state" placeholder="Write user state">
+        </div> 
+        <div class="form-control">
+            <label for="city">City</label>
+            <input type="text" name="city" placeholder="Write user city">
+        </div> 
+        <div class="form-control">
+            <label for="neighborhood">Neighborhood</label>
+            <input type="text" name="neighborhood" placeholder="Write user neighborhood">
+        </div> 
+        <div class="form-control">
+            <label for="street">Street</label>
+            <input type="text" name="street" placeholder="Write user street">
+        </div>        
+        <div class="form-control">
+            <label for="number">Number</label>
+            <input type="text" name="number" placeholder="Write user number">
+        </div>     
+        <input type="submit" class="submit-button" value="Add address">                            
+    </form>
+</div>
