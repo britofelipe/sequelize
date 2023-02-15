@@ -30,6 +30,7 @@ const Address = db.define("Address", { // Name of Model
 })
 
 // MAKING THE RELATION
+User.hasMany(Address)
 Address.belongsTo(User)
 
 module.exports = Address

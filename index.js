@@ -61,13 +61,14 @@ app.get("/users/:id", async(req, res) => {
 app.get("/users/update/:id", async(req, res) => {
     const id = req.params.id
     User.findOne({
-        raw: true, 
+        include: Address, // Picking Addresses data
         where: { 
             id: id
         },
     })
     .then((user) => {
-        res.render("update-user", { user })
+        // Maing address visualization possible
+        res.render("update-user", { user: user.get({ plain: true }) })
     })
     .catch((err) => console.log(err))
 })
@@ -157,9 +158,23 @@ app.post("/address/create", async(req, res) => {
         UserId,
     }
 
+    try{
+        await Address.create(address)
+        res.redirect(`/users/update/${UserId}`)
+    } catch(error) {
+        console.log(error)
+    }
+})
 
-    await Address.create(address)
-    res.redirect(`/users/${UserId}`)
+app.post("/address/delete", async(req, res) => {
+    const UserId = req.body.UserId
+    const id = req.body.id
+
+    await Address.destroy({
+        where: { id: id }
+    })
+
+    res.redirect(`/users/update/${UserId}`)
 })
 
 // CONNECTION

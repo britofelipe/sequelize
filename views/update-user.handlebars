@@ -65,4 +65,18 @@
         </div>     
         <input type="submit" class="submit-button" value="Add address">                            
     </form>
+    <div class="address-list">
+        <h2>Registered addresses:</h2>
+        {{#each user.Addresses}}
+            <div class="actions">
+                <p># {{this.id}} - {{this.street}} - {{this.number}} ({{this.neighborhood}})</p>
+                <p>{{this.city}}, {{this.state}}, {{this.country}}</p>
+                <form action="/address/delete" method="POST">
+                    <input type="hidden" name="UserId" value="{{this.UserId}}">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="submit" class="delete-button" value="Delete">
+                </form>
+            </div>
+        {{/each}}
+    </div>
 </div>
